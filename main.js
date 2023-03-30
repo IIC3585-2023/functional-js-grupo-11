@@ -52,9 +52,25 @@ const blockquoteTransformer = (markdownBlock) => {
     return html[0] + '</blockquote>'.repeat(html[1])
 }
 
-const applyEmphasisTransformers = (transformers) = (markdownBlock) => {
-    return markdownBlock
+const emphasisTransformer = (markdownBlock) => {
+    found = markdownBlock.match(/(\*\*?)(?![\s\*])((?:[\s*]*(?:\\[\\*]|[^\\\s*]))+?)\1/s)
+    if(!found) return markdownBlock
+
+    return emphasisTransformer(markdownBlock.slice(0, found.index) + (found[1] == "**" ? "<strong>" : "<i>") + found[2] + (found[1] == "**" ? "</strong>" : "</i>") + markdownBlock.slice(found[0].length + found.index))
 }
+
+const linkTransformer = (markdownBlock) => {
+    found = markdownBlock.match(/\[([^\(\)\[\]]*)\]\(([^\[\]\(\)]*)\)/s)
+    if(!found) return markdownBlock
+    return markdownBlock.slice(0, found.index) + "<a href=" + found[2] + ">" + found[1] + "</a>" + linkTransformer(markdownBlock.slice(found.index + found[0].length))
+}
+
+const imageTransformer = (markdownBlock) => {
+    found = markdownBlock.match(/!\[([^\(\)\[\]]*)\]\(([^\[\]\(\)]*?)\s*("(?:[^\[\]\(\)"]*?)")?\s*\)/s)
+    if(!found) return markdownBlock
+    return markdownBlock.slice(0, found.index) + "<img src=" + found[2] + " alt=" + found[1] + " title=" + found[3] + "/>" + imageTransformer(markdownBlock.slice(found.index + found[0].length))
+}
+
 
 const applyTypeTransformers = (transformers) =>{
         return (markdownBlock) => {
@@ -68,6 +84,7 @@ const markdownBlockToHTML = (markdownBlock) => {
     typeTransformer = applyTypeTransformers([headerTransformer, listTransformer, blockquoteTransformer])
 
     val = typeTransformer(markdownBlock)
+    
     return val
 }
 
@@ -77,10 +94,17 @@ const markdownToHTML = (markdownText) => {
         .map(markdown => markdownBlockToHTML(markdown))
 }
 
-data = fs.readFileSync('test.md', 'utf8')
+// text = "My favorite search engine is [Duck Duck Go](https://duckduckgo.com).dasdsadasdas[Duck Duck Go](https://duckduckgo.com)asddsadas"
 
-html = markdownToHTML(data)
+// console.log(linkTransformer(text))
 
-fs.writeFileSync('o.html', html.join('\n'))
+text = "dsadsadsaasddasdsa ![The San Juan Mountains are beautiful!](/assets/images/san-juan-mountains.jpg \"San Juan Mountains\")adsdassaddsadsadsa ![The San Juan Mountains are beautiful!](/assets/images/san-juan-mountains.jpg \"San Juan Mountains\")"
+console.log(imageTransformer(text))
+
+// data = fs.readFileSync('test.md', 'utf8')
+
+// html = markdownToHTML(data)
+
+// fs.writeFileSync('o.html', html.join('\n'))
 // const pipeline = pipe([find_blocks, blocks => blocks.foreach(parse_block)])
 // EL output de find_blocks lo parseamos con parse_blocks, despues juntamos el output de todas esas llamadas y retornamos eso
