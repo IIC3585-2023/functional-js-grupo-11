@@ -1,4 +1,5 @@
 const emphasisTransformer = (markdownBlock) => {
+    // Regex que matchea con algo de la forma "*{text}*" o "**{text}**"
     found = markdownBlock.match(/(\*\*?)(?![\s\*])((?:[\s*]*(?:\\[\\*]|[^\\\s*]))+?)\1/s);
     if(!found) return markdownBlock;
 
@@ -9,6 +10,7 @@ const emphasisTransformer = (markdownBlock) => {
 }
 
 const imageTransformer = (markdownBlock) => {
+    // Regex que matchea con algo de la forma "![{text}]({text})"
     found = markdownBlock.match(/!\[([^\(\)\[\]]*)\]\(([^\[\]\(\)]*?)\s*("(?:[^\[\]\(\)"]*?)")?\s*\)/s);
     if(!found) return markdownBlock;
 
@@ -16,6 +18,7 @@ const imageTransformer = (markdownBlock) => {
 }
 
 const linkTransformer = (markdownBlock) => {
+    // Regex que matchea con algo de la forma "[{text}]({text})"
     found = markdownBlock.match(/\[([^\(\)\[\]]*)\]\(([^\[\]\(\)]*)\)/s);
     if(!found) return markdownBlock;
 
@@ -23,6 +26,7 @@ const linkTransformer = (markdownBlock) => {
 }
 
 const codeTransformer = (markdownBlock) => {
+    // Regex que matchea con algo de la forma "``{text}``"
     found = markdownBlock.match(/``([^`]+)``/s);
     if (!found) return markdownBlock;
 
