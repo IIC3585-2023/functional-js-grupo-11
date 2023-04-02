@@ -13,10 +13,11 @@ Integrantes:
 * Un mismo item dentro de una lista no tiene \n
 * El codigo se hace con 2 backticks
 * Los saltos de linea son solo \n (LF), no \r\n (CRLF)
+* No hay ordered lists dentro de unordered lists y vice-versa
 
 ## TODO
 
-Ordered lists
+Presentacion
 
 ## Funcionamiento
 

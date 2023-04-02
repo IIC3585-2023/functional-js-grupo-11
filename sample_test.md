@@ -66,3 +66,17 @@ Otro ejemplo se puede hacer con Blockquotes:
 un ejemplo con ``Backticks en codig `` es el anterior
 
 ``Otro ejemplo es este``
+
+
+Por ultimo, podemos tener una lista *ordenada*
+
+1. primer item
+4. segundo item
+6. tercer item
+    1. Segundo nivel de anidacion
+    66. segundo item en el segundo nivel
+        1. Tercer nivel de anidacion
+    99. De vuelta al segundo
+        1. De vuelta al tercero
+        6. asl
+4. De vuelta al primero
