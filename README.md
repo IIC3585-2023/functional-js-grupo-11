@@ -14,6 +14,7 @@ Integrantes:
 * El codigo se hace con 2 backticks
 * Los saltos de linea son solo \n (LF), no \r\n (CRLF)
 * No hay ordered lists dentro de unordered lists y vice-versa
+* Los italics y bolds se hacen con asteriscos (*), no guiones bajos (_)
 
 ## TODO
 
