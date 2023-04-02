@@ -2,7 +2,7 @@
 
 Integrantes:
 
-* Clemente Sepulveda
+* Clemente Sepúlveda
 * Fernando Quintana
 * Rodrigo Nahum
 
@@ -17,6 +17,10 @@ Integrantes:
 ## TODO
 
 Ordered lists
+
+## Funcionamiento
+
+Antes de correr el código, se necesita tener un archivo llamado `sample_test.md` en el directorio (o tener un archivo `.md` y cambiar el valor de la variable `filePath` en `main.js`). Para correr el código, se ejecuta el comando `node ./main.js`, el cual generará un archivo `output.html` con el mismo contenido del archivo de input pero en formato MarkDown. 
 
 ## Enlaces utiles
 
