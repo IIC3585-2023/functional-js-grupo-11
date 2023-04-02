@@ -12,10 +12,11 @@ const checkMultipleChoiceStart = (possibleStartCheckers) => (markdownBlock) => {
     return possibleStartCheckers[0](markdownBlock) ? true : checkMultipleChoiceStart(possibleStartCheckers.slice(1))(markdownBlock)
 }
 
-checkListStartAsterisk = checkBlockMatch(/^\s*\*/s)
-checkListStartDash = checkBlockMatch(/^\s*-/s)
+const checkListStartAsterisk = checkBlockMatch(/^\s*\*/s)
+const checkListStartDash = checkBlockMatch(/^\s*-/s)
 
-checkListStart = checkMultipleChoiceStart([checkListStartAsterisk, checkListStartDash])
-checkBlockQuoteStart = checkBlockMatch(/^\s*>/s)
+const checkListStart = checkMultipleChoiceStart([checkListStartAsterisk, checkListStartDash])
+const checkBlockQuoteStart = checkBlockMatch(/^\s*>/s)
+const checkOrderedListStart = checkBlockMatch(/^\s*\d/s)
 
-module.exports =  { checkListStart };
+module.exports =  { checkListStart, checkBlockQuoteStart, checkOrderedListStart };
