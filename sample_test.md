@@ -1,12 +1,4 @@
-* objeto 1
-* objeto 2
-* objeto 3
-
-
-
 # El formato Markdown
-
-
 
 
 ## Parte 1
@@ -42,13 +34,13 @@ Otra forma de hacer listas es con guiones
         - anidacion 2
 - de vuelta al inicio
 
-[Texto](https://www.google.cl/maps)
+Un ejemplo de link es el siguiente: [Texto](https://www.google.cl/maps)
 
 Por ultimo, una imagen se puede insertar en **Markdown** de la siguiente forma: ![Descripcion de imagen](DefM3PPXcAABTmm.jpg)
 
 Otro ejemplo se puede hacer con Blockquotes:
 
-> Primer nivel de *anidacion
+> Primer nivel de *anidacion*
 > Hasta aca todo bien
 >> Segundo **Nivel de anidacion**
 >>> Tercer nivel
@@ -59,11 +51,8 @@ Otro ejemplo se puede hacer con Blockquotes:
 > Primer nivel de nuevo
 
 
-* lista 1
-* lista 2 asdasd
-* lista 3
 
-un ejemplo con ``Backticks en codig `` es el anterior
+un ejemplo con ``Backticks en codigo`` es el anterior
 
 ``Otro ejemplo es este``
 

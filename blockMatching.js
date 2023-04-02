@@ -1,8 +1,5 @@
 const checkBlockMatch = (regexp) => (markdownBlock) => {
-    if (markdownBlock.match(regexp)) {
-        return true
-    }
-    return false
+    return markdownBlock.match(regexp) ? true : false;
 }
 
 const checkMultipleChoiceStart = (possibleStartCheckers) => (markdownBlock) => {
